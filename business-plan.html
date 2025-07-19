@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepSpheres Business Plan - Medical Sales Intelligence Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --background-light: #f8fafc;
+            --background-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><polygon points="60,0 0,0 0,60"/></g></g></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .header .tagline {
+            font-size: 1.2rem;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--background-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--background-light);
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main {
+            padding: 4rem 0;
+        }
+
+        .section {
+            background: var(--background-white);
+            margin-bottom: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .section-content {
+            padding: 3rem;
+        }
+
+        /* Executive Summary Styles */
+        .exec-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .highlight-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        .highlight-card .metric {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Financial Tables */
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+        }
+
+        .financial-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .financial-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .financial-table tr:hover {
+            background: var(--background-light);
+        }
+
+        .financial-table .number {
+            font-weight: 600;
+            text-align: right;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+        }
+
+        .financial-table .positive {
+            color: var(--success-color);
+        }
+
+        .financial-table .negative {
+            color: #ef4444;
+        }
+
+        /* Charts Container */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        /* Key Metrics Cards */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .metric-card .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card .label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .metric-card .description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .styled-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            background: var(--success-color);
+            color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .styled-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .risk-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .risk-low {
+            background: #f0fdf4;
+            border-color: var(--success-color);
+        }
+
+        .risk-medium {
+            background: #fffbeb;
+            border-color: var(--warning-color);
+        }
+
+        .risk-high {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-content {
+                padding: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+
+            .section {
+                box-shadow: none;
+                border: 1px solid var(--border-light);
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+
+            .header {
+                background: var(--primary-color) !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-counter {
+            animation: countUp 2s ease;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>RepSpheres</h1>
+                <p class="subtitle">Comprehensive Business Plan</p>
+                <p class="tagline">Medical Sales Intelligence Platform for the Aesthetic Industry</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#executive-summary" class="nav-link">Executive Summary</a>
+                <a href="#market-analysis" class="nav-link">Market Analysis</a>
+                <a href="#products-services" class="nav-link">Products & Services</a>
+                <a href="#financial-projections" class="nav-link">Financial Projections</a>
+                <a href="#market-strategy" class="nav-link">Go-to-Market</a>
+                <a href="#risk-analysis" class="nav-link">Risk Analysis</a>
+                <a href="#funding" class="nav-link">Funding</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="section fade-in">
+                <div class="section-header exec-summary">
+                    <h2>Executive Summary</h2>
+                    <p>Transforming Medical Aesthetics Sales Intelligence</p>
+                </div>
+                <div class="section-content">
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+                        RepSpheres is a comprehensive medical sales intelligence platform serving the dental and aesthetic industries. Our operational SaaS platform combines AI-powered analytics, CRM functionality, market intelligence, and educational resources into a unified ecosystem designed to accelerate sales performance and market understanding.
+                    </p>
+
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <h3>Market Opportunity</h3>
+                            <span class="metric">$35.32B</span>
+                            <p>by 2030 (12.8% CAGR)</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>Operational Status</h3>
+                            <span class="metric">5 Tiers</span>
+                            <p>Revenue-generating platform</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>Network Advantage</h3>
+                            <span class="metric">2000+</span>
+                            <p>LinkedIn connections</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>Industry Experience</h3>
+                            <span class="metric">15+ Years</span>
+                            <p>Medical aesthetics expertise</p>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="value animate-counter">$480K</span>
+                            <div class="label">Year 1 ARR (Conservative)</div>
+                            <div class="description">100 customers at $400/month average</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value animate-counter">$1.2M</span>
+                            <div class="label">Year 2 ARR (Conservative)</div>
+                            <div class="description">250 customers, sustainable growth</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value animate-counter">$8.5M</span>
+                            <div class="label">Year 5 ARR (Conservative)</div>
+                            <div class="description">1,770 customers, market leadership</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value animate-counter">85%+</span>
+                            <div class="label">Gross Margins</div>
+                            <div class="description">High-margin SaaS business model</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value animate-counter">48:1</span>
+                            <div class="label">CLV/CAC Ratio</div>
+                            <div class="description">Excellent unit economics</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value animate-counter">18</span>
+                            <div class="label">Months to Breakeven</div>
+                            <div class="description">Conservative growth model</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis -->
+            <section id="market-analysis" class="section fade-in">
+                <div class="section-header">
+                    <h2>Market Analysis</h2>
+                    <p>Massive Opportunity in Growing Medical Aesthetics Industry</p>
+                </div>
+                <div class="section-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);">Market Size & Growth</h3>
+                            <ul class="styled-list">
+                                <li><strong>Current Market:</strong> $17.16B (2024)</li>
+                                <li><strong>Projected Market:</strong> $35.32B by 2030</li>
+                                <li><strong>Growth Rate:</strong> 12.8% CAGR</li>
+                                <li><strong>Target Segment:</strong> $2.5B (software/CRM)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);">Market Drivers</h3>
+                            <ul class="styled-list">
+                                <li>Increasing demand for non-invasive procedures</li>
+                                <li>Growing technology adoption in medical practices</li>
+                                <li>Rising need for data-driven sales intelligence</li>
+                                <li>Expanding aesthetic medicine market globally</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--primary-color); text-align: center;">Target Customer Segments</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="value">15,000</span>
+                            <div class="label">Sales Representatives</div>
+                            <div class="description">$200-500/month willingness to pay</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">8,000</span>
+                            <div class="label">Medical Practices</div>
+                            <div class="description">$300-1,000/month for practice management</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">500</span>
+                            <div class="label">Medical Device Companies</div>
+                            <div class="description">$1,000-5,000/month for enterprise solutions</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products & Services -->
+            <section id="products-services" class="section fade-in">
+                <div class="section-header">
+                    <h2>Products & Services</h2>
+                    <p>Comprehensive 5-Module SaaS Platform</p>
+                </div>
+                <div class="section-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary-color);">
+                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">1. Global RepSpheres Portal</h3>
+                            <p>Main entry point and authentication hub with user management, subscription billing, and navigation.</p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong>Tech:</strong> React 18, Three.js, Supabase
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent-color);">
+                            <h3 style="color: var(--accent-color); margin-bottom: 1rem;">2. SphereOS CRM</h3>
+                            <p>Comprehensive CRM with SUIS Intelligence System, call analytics, sales pipeline management, and procedure knowledge base.</p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong>Pricing:</strong> $49-$1,499/month (5 tiers)
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--success-color);">
+                            <h3 style="color: var(--success-color); margin-bottom: 1rem;">3. Market Data Intelligence</h3>
+                            <p>Real-time market analytics, competitive intelligence, regional analytics, and AI-powered market forecasting.</p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong>Features:</strong> NPI-verified provider database
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--warning-color);">
+                            <h3 style="color: var(--warning-color); margin-bottom: 1rem;">4. Canvas AI Research</h3>
+                            <p>AI-powered research assistant with multi-model integration (OpenAI, Claude, Gemini), content generation, and competitive analysis.</p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong>AI Models:</strong> OpenAI, Claude, Gemini
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border-left: 4px solid #8b5cf6;">
+                            <h3 style="color: #8b5cf6; margin-bottom: 1rem;">5. RepConnect (Harvey Syndicate)</h3>
+                            <p>AI-powered sales coaching with live call monitoring, performance analytics, and AI-powered sales recommendations.</p>
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong>Focus:</strong> Team collaboration and optimization
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color); text-align: center;">Subscription Pricing Tiers</h3>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Monthly Price</th>
+                                <th>Canvas Briefs</th>
+                                <th>AI Prompts</th>
+                                <th>Call Analyses</th>
+                                <th>Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Explorer</strong></td>
+                                <td class="number">$49</td>
+                                <td class="number">25</td>
+                                <td class="number">5</td>
+                                <td class="number">5</td>
+                                <td>Entry-level functionality</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Professional</strong></td>
+                                <td class="number">$149</td>
+                                <td class="number">50</td>
+                                <td class="number">50</td>
+                                <td class="number">10</td>
+                                <td>Core business features</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Growth</strong></td>
+                                <td class="number">$349</td>
+                                <td class="number">100</td>
+                                <td class="number">Unlimited</td>
+                                <td class="number">50</td>
+                                <td>Advanced analytics</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Enterprise</strong></td>
+                                <td class="number">$749</td>
+                                <td class="number">Unlimited</td>
+                                <td class="number">Unlimited</td>
+                                <td class="number">Unlimited</td>
+                                <td>Team collaboration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Elite</strong></td>
+                                <td class="number">$1,499</td>
+                                <td class="number">Unlimited</td>
+                                <td class="number">Unlimited</td>
+                                <td class="number">Unlimited</td>
+                                <td>Full AI acceleration, success manager</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Financial Projections -->
+            <section id="financial-projections" class="section fade-in">
+                <div class="section-header">
+                    <h2>Financial Projections</h2>
+                    <p>Conservative & Aggressive Growth Scenarios</p>
+                </div>
+                <div class="section-content">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--primary-color);">Conservative Model (5-Year Projections)</h3>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Customers</th>
+                                <th>Monthly ARPU</th>
+                                <th>Annual ARR</th>
+                                <th>Revenue</th>
+                                <th>Gross Profit</th>
+                                <th>Net Profit</th>
+                                <th>Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Year 1</strong></td>
+                                <td class="number">100</td>
+                                <td class="number">$400</td>
+                                <td class="number">$480,000</td>
+                                <td class="number">$300,000</td>
+                                <td class="number">$255,000</td>
+                                <td class="number negative">-$45,000</td>
+                                <td class="number negative">-15.0%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 2</strong></td>
+                                <td class="number">250</td>
+                                <td class="number">$400</td>
+                                <td class="number">$1,200,000</td>
+                                <td class="number">$900,000</td>
+                                <td class="number">$783,000</td>
+                                <td class="number positive">$105,000</td>
+                                <td class="number positive">11.7%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 3</strong></td>
+                                <td class="number">580</td>
+                                <td class="number">$400</td>
+                                <td class="number">$2,784,000</td>
+                                <td class="number">$2,100,000</td>
+                                <td class="number">$1,845,000</td>
+                                <td class="number positive">$525,000</td>
+                                <td class="number positive">25.0%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 4</strong></td>
+                                <td class="number">1,170</td>
+                                <td class="number">$420</td>
+                                <td class="number">$5,896,800</td>
+                                <td class="number">$4,500,000</td>
+                                <td class="number">$4,005,000</td>
+                                <td class="number positive">$1,785,000</td>
+                                <td class="number positive">39.7%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 5</strong></td>
+                                <td class="number">1,770</td>
+                                <td class="number">$450</td>
+                                <td class="number">$9,558,000</td>
+                                <td class="number">$7,500,000</td>
+                                <td class="number">$6,750,000</td>
+                                <td class="number positive">$3,480,000</td>
+                                <td class="number positive">46.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color);">Aggressive Model (5-Year Projections)</h3>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Customers</th>
+                                <th>Monthly ARPU</th>
+                                <th>Annual ARR</th>
+                                <th>Revenue</th>
+                                <th>Gross Profit</th>
+                                <th>Net Profit</th>
+                                <th>Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Year 1</strong></td>
+                                <td class="number">150</td>
+                                <td class="number">$480</td>
+                                <td class="number">$864,000</td>
+                                <td class="number">$450,000</td>
+                                <td class="number">$391,500</td>
+                                <td class="number negative">-$358,500</td>
+                                <td class="number negative">-79.7%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 2</strong></td>
+                                <td class="number">625</td>
+                                <td class="number">$500</td>
+                                <td class="number">$3,750,000</td>
+                                <td class="number">$2,250,000</td>
+                                <td class="number">$2,002,500</td>
+                                <td class="number positive">$202,500</td>
+                                <td class="number positive">9.0%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 3</strong></td>
+                                <td class="number">1,500</td>
+                                <td class="number">$520</td>
+                                <td class="number">$9,360,000</td>
+                                <td class="number">$5,400,000</td>
+                                <td class="number">$4,860,000</td>
+                                <td class="number positive">$1,500,000</td>
+                                <td class="number positive">27.8%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 4</strong></td>
+                                <td class="number">2,750</td>
+                                <td class="number">$550</td>
+                                <td class="number">$18,150,000</td>
+                                <td class="number">$10,800,000</td>
+                                <td class="number">$9,828,000</td>
+                                <td class="number positive">$4,668,000</td>
+                                <td class="number positive">43.2%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Year 5</strong></td>
+                                <td class="number">3,750</td>
+                                <td class="number">$600</td>
+                                <td class="number">$27,000,000</td>
+                                <td class="number">$15,750,000</td>
+                                <td class="number">$14,490,000</td>
+                                <td class="number positive">$7,690,000</td>
+                                <td class="number positive">48.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color);">Key Financial Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="value">$300</span>
+                            <div class="label">Customer Acquisition Cost</div>
+                            <div class="description">Blended CAC across all channels</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">$14,400</span>
+                            <div class="label">Customer Lifetime Value</div>
+                            <div class="description">36-month average lifespan</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">9</span>
+                            <div class="label">Payback Period (Months)</div>
+                            <div class="description">Time to recover acquisition cost</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">2%</span>
+                            <div class="label">Monthly Churn Rate</div>
+                            <div class="description">Industry-standard retention</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">115%</span>
+                            <div class="label">IRR (Conservative)</div>
+                            <div class="description">Excellent investor returns</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">165%</span>
+                            <div class="label">IRR (Aggressive)</div>
+                            <div class="description">Outstanding growth potential</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Go-to-Market Strategy -->
+            <section id="market-strategy" class="section fade-in">
+                <div class="section-header">
+                    <h2>Go-to-Market Strategy</h2>
+                    <p>Three-Phase Approach to Market Penetration</p>
+                </div>
+                <div class="section-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Phase 1: LinkedIn Network Activation</h3>
+                            <p style="margin-bottom: 1.5rem; opacity: 0.9;">Leverage existing 2,000+ LinkedIn connections for initial customer acquisition</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Content marketing (3-5 posts/week)</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Thought leadership positioning</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Direct outreach to warm connections</li>
+                                <li style="padding: 0.5rem 0;">✓ Monthly educational webinars</li>
+                            </ul>
+                            <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                                <strong>Target:</strong> 10-15 new customers/month
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 12px;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Phase 2: Job Posting Momentum</h3>
+                            <p style="margin-bottom: 1.5rem; opacity: 0.9;">Strategic job postings in major cities to create perception of rapid expansion</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 4-week campaign across major markets</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Psychology of momentum and success</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Professional brand visibility</li>
+                                <li style="padding: 0.5rem 0;">✓ Industry network activation</li>
+                            </ul>
+                            <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                                <strong>Reach:</strong> 10,000-50,000 professional impressions
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 12px;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Phase 3: Sales Team Scaling</h3>
+                            <p style="margin-bottom: 1.5rem; opacity: 0.9;">Hire experienced medical aesthetics sales professionals for enterprise expansion</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Industry-experienced sales team</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Direct enterprise sales</li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Strategic partnership development</li>
+                                <li style="padding: 0.5rem 0;">✓ Market expansion</li>
+                            </ul>
+                            <div style="margin-top: 1.5rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                                <strong>Timeline:</strong> Months 6-12
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color); text-align: center;">Customer Acquisition Channels</h3>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>Conservative %</th>
+                                <th>Aggressive %</th>
+                                <th>CAC</th>
+                                <th>Conversion Rate</th>
+                                <th>Key Strategy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>LinkedIn Marketing</strong></td>
+                                <td class="number">40%</td>
+                                <td class="number">30%</td>
+                                <td class="number">$250</td>
+                                <td class="number">5%</td>
+                                <td>Content marketing & direct outreach</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Content Marketing</strong></td>
+                                <td class="number">20%</td>
+                                <td class="number">15%</td>
+                                <td class="number">$500</td>
+                                <td class="number">10%</td>
+                                <td>SEO, blog content, thought leadership</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Direct Sales</strong></td>
+                                <td class="number">15%</td>
+                                <td class="number">40%</td>
+                                <td class="number">$600</td>
+                                <td class="number">25%</td>
+                                <td>Experienced sales team</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Partnerships</strong></td>
+                                <td class="number">25%</td>
+                                <td class="number">10%</td>
+                                <td class="number">$200</td>
+                                <td class="number">15%</td>
+                                <td>Industry associations & distributors</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Job Posting Campaign</strong></td>
+                                <td class="number">0%</td>
+                                <td class="number">5%</td>
+                                <td class="number">$1,000</td>
+                                <td class="number">25%</td>
+                                <td>Momentum psychology (aggressive only)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Risk Analysis -->
+            <section id="risk-analysis" class="section fade-in">
+                <div class="section-header">
+                    <h2>Risk Analysis & Mitigation</h2>
+                    <p>Comprehensive Risk Assessment with Mitigation Strategies</p>
+                </div>
+                <div class="section-content">
+                    <div class="risk-matrix">
+                        <div class="risk-item risk-low">
+                            <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">Low Risk</h4>
+                            <h5>Technology Scalability</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Cloud-based architecture with auto-scaling capabilities and experienced technical advisors.</p>
+                        </div>
+                        
+                        <div class="risk-item risk-medium">
+                            <h4 style="color: var(--warning-color); margin-bottom: 0.5rem;">Medium Risk</h4>
+                            <h5>Market Competition</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Strong competitive moat through industry expertise, network effects, and comprehensive platform.</p>
+                        </div>
+                        
+                        <div class="risk-item risk-high">
+                            <h4 style="color: #ef4444; margin-bottom: 0.5rem;">Managed Risk</h4>
+                            <h5>Key Person Dependency</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Documentation of processes, strong management team building, and succession planning.</p>
+                        </div>
+                        
+                        <div class="risk-item risk-low">
+                            <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">Low Risk</h4>
+                            <h5>Customer Concentration</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Diversified customer base with no single customer >10% of revenue target.</p>
+                        </div>
+                        
+                        <div class="risk-item risk-medium">
+                            <h4 style="color: var(--warning-color); margin-bottom: 0.5rem;">Medium Risk</h4>
+                            <h5>AI Model Dependency</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Multi-provider strategy with OpenAI, Claude, and Gemini plus proprietary model development.</p>
+                        </div>
+                        
+                        <div class="risk-item risk-low">
+                            <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">Low Risk</h4>
+                            <h5>Market Downturn</h5>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Essential sales tools that improve efficiency during economic downturns with flexible pricing.</p>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color);">Competitive Advantages</h3>
+                    <ul class="styled-list">
+                        <li><strong>Industry Expertise:</strong> 15+ years of domain knowledge in medical aesthetics</li>
+                        <li><strong>Operational Platform:</strong> Fully functional, revenue-generating SaaS reduces execution risk</li>
+                        <li><strong>Network Effects:</strong> 2,000+ LinkedIn connections providing immediate market access</li>
+                        <li><strong>AI Integration:</strong> Advanced AI capabilities across all platform modules</li>
+                        <li><strong>Comprehensive Solution:</strong> Unified ecosystem vs. fragmented point solutions</li>
+                        <li><strong>Data Advantage:</strong> Largest dataset ever assembled for dental and aesthetics industries</li>
+                        <li><strong>First-Mover Advantage:</strong> Established platform with operational history</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Funding Requirements -->
+            <section id="funding" class="section fade-in">
+                <div class="section-header">
+                    <h2>Funding Requirements</h2>
+                    <p>Investment Opportunity with Exceptional Returns</p>
+                </div>
+                <div class="section-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                        <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 2rem; border-radius: 12px;">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Conservative Scenario</h3>
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">$250,000</div>
+                                <div style="opacity: 0.9;">18-month runway to profitability</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                                <div style="margin-bottom: 0.5rem;"><strong>Valuation:</strong> $2.5M pre-money</div>
+                                <div style="margin-bottom: 0.5rem;"><strong>Equity:</strong> 10% for investors</div>
+                                <div><strong>5-Year Return:</strong> 20x ($5M)</div>
+                            </div>
+                            <div style="text-align: center; font-size: 1.2rem; font-weight: 600;">
+                                115% IRR
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 12px;">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Aggressive Scenario</h3>
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">$500,000</div>
+                                <div style="opacity: 0.9;">12-month aggressive scaling</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                                <div style="margin-bottom: 0.5rem;"><strong>Valuation:</strong> $5M pre-money</div>
+                                <div style="margin-bottom: 0.5rem;"><strong>Equity:</strong> 10% for investors</div>
+                                <div><strong>5-Year Return:</strong> 30x ($15M)</div>
+                            </div>
+                            <div style="text-align: center; font-size: 1.2rem; font-weight: 600;">
+                                165% IRR
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--primary-color);">Use of Funds (Conservative Model)</h3>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
+                        <div>
+                            <table class="financial-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Amount</th>
+                                        <th>Percentage</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Marketing & Sales</strong></td>
+                                        <td class="number">$100,000</td>
+                                        <td class="number">40%</td>
+                                        <td>LinkedIn ads, content creation, events</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Personnel</strong></td>
+                                        <td class="number">$87,500</td>
+                                        <td class="number">35%</td>
+                                        <td>Founder salary, contractors</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Technology</strong></td>
+                                        <td class="number">$62,500</td>
+                                        <td class="number">25%</td>
+                                        <td>Infrastructure, AI APIs, development</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; border: 2px solid var(--primary-color);">
+                                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Funding Timeline</h4>
+                                <div style="margin-bottom: 1rem;">
+                                    <strong>Months 1-6:</strong> Network activation
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <strong>Months 7-12:</strong> Team building
+                                </div>
+                                <div>
+                                    <strong>Months 13-18:</strong> Profitability
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.8rem; margin: 3rem 0 2rem; color: var(--primary-color);">Exit Strategy</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="value">5-7 Years</span>
+                            <div class="label">Exit Timeline</div>
+                            <div class="description">Strategic acquisition or IPO</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">$50-100M</span>
+                            <div class="label">Projected Valuation</div>
+                            <div class="description">10-15x revenue multiple</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="value">5-10x</span>
+                            <div class="label">Investor Return</div>
+                            <div class="description">Multiple on investment</div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--background-light); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Potential Acquirers</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div>• Healthcare Technology (Athenahealth, Epic)</div>
+                            <div>• CRM Platforms (Salesforce, HubSpot)</div>
+                            <div>• Medical Device Companies</div>
+                            <div>• Private Equity (Healthcare focus)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Investment Highlights</h3>
+                    <p>✓ Operational Platform with Revenue<br>
+                    ✓ Massive Market Opportunity ($35.32B)<br>
+                    ✓ Proven Leadership (15+ Years)<br>
+                    ✓ Network Advantage (2000+ Connections)</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Financial Returns</h3>
+                    <p>Conservative: 115% IRR<br>
+                    Aggressive: 165% IRR<br>
+                    5-Year Exit: $50-100M Valuation<br>
+                    Strong Unit Economics (48:1 CLV/CAC)</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Next Steps</h3>
+                    <p>1. Secure Funding ($250K-$500K)<br>
+                    2. Execute Marketing Strategy<br>
+                    3. Build Team (CTO, VP Sales)<br>
+                    4. Scale to Market Leadership</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--text-secondary); padding-top: 2rem; text-align: center; color: var(--text-light);">
+                <p><strong>RepSpheres Business Plan</strong> - Transforming Medical Aesthetics Sales Intelligence</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">This business plan represents a conservative growth strategy with proven market opportunity and exceptional investment returns.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate progress bars
+        const progressBars = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.getAttribute('data-width') || '75%';
+                    entry.target.style.width = width;
+                }
+            });
+        }, observerOptions);
+
+        progressBars.forEach(bar => {
+            progressObserver.observe(bar);
+        });
+
+        // Counter animation for metrics
+        const animateCounter = (element, target, duration = 2000) => {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (target >= 1000000) {
+                    element.textContent = '$' + (current / 1000000).toFixed(1) + 'M';
+                } else if (target >= 1000) {
+                    element.textContent = '$' + (current / 1000).toFixed(0) + 'K';
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, 16);
+        };
+
+        // Initialize animations when elements come into view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const text = element.textContent;
+                    
+                    // Extract number from text
+                    const match = text.match(/[\d.]+/);
+                    if (match) {
+                        let target = parseFloat(match[0]);
+                        if (text.includes('K')) target *= 1000;
+                        if (text.includes('M')) target *= 1000000;
+                        if (text.includes('B')) target *= 1000000000;
+                        
+                        element.textContent = '0';
+                        animateCounter(element, target);
+                    }
+                    
+                    counterObserver.unobserve(element);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-counter').forEach(el => {
+            counterObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
